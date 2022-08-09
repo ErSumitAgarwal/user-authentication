@@ -1,0 +1,26 @@
+Build the notes App - use authentication using react + redux + thunk
+
+// User Reducer - {} --> Account Info
+User is logged in or not. Instead of checking it using isLoggedIn as we did earlier, now we can check the login status by checking whether the user object is present inside the reducer or not.
+This will require us to
+    // SET_USER - {}
+    // LOGOUT_USER - Reset to empty object
+
+// notes - Initial state = {
+    data: [],
+    loading: false/true - (We can use conditional rendering to display what is goanna be there on the UI),
+    errors: {} or [] depends on how we are getting response from the server
+}
+
+Area where we need to focus on is reducer because we cannot do spread of state like before because state is no longer an array. Its an object. 
+So now we need to 
+// - reducer 
+
+    // GET
+        {...state, data: [...action.payload]}
+
+    // ADD
+        {...state, data: [...state.data, {...action.payload}]}
+
+    In case we have multiple values to spread then, 
+        // ADD - {...state, data: [...action.payload], loading: true}
